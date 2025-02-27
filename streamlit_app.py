@@ -6,5 +6,3 @@ st.title("🎈 My new app")
 st.write(
     "Привет Светулет"
 )
-
-st.button("Hello")
