@@ -4,7 +4,7 @@ st.title("🎈 My new app")
 
 
 st.write(
-    "Let's start building!"
+    "Привет Светулет"
 )
 
 st.button("Hello")
