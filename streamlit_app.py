@@ -1,10 +1,13 @@
 import streamlit as st
-import pandas as pd
+from streamlit_gsheets import GSheetsConnection
+import random
 
-df = pd.DataFrame(
-    [
-       {"item": "Item 1", "index": 4, "bought": True},
-       {"item": "Item 2", "index": 3, "bought": True},
-   ]
-)
-edited_df = st.data_editor(df, hide_index=True)
+
+# Create a connection object.
+conn = st.connection("gsheets", type=GSheetsConnection)
+
+df = conn.read()
+
+
+ran = random.randint(0, len(df) - 1)
+st.title(f"{df['eng'][ran]} - {df['rus'][ran]}")
