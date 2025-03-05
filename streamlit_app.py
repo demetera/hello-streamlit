@@ -1,13 +1,7 @@
 import streamlit as st
-from streamlit_gsheets import GSheetsConnection
-import random
+import pandas as pd
+import numpy as np
 
+chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
 
-# Create a connection object.
-conn = st.connection("gsheets", type=GSheetsConnection)
-
-df = conn.read()
-
-
-ran = random.randint(0, len(df) - 1)
-st.title(f"{df['eng'][ran]} - {df['rus'][ran]}")
+st.bar_chart(chart_data)
